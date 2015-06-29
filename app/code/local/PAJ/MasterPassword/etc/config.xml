@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<config>
+	<modules>
+		<PAJ_MasterPassword>
+			<version>0.0.2</version>
+		</PAJ_MasterPassword>
+	</modules>
+	<global>
+        <helpers>
+            <masterpassword>
+                <class>PAJ_MasterPassword_Helper</class>
+            </masterpassword>
+        </helpers>        
+		<models>
+			<customer>
+				<rewrite>
+					<customer>PAJ_MasterPassword_Customer_Model_Customer</customer>
+				</rewrite>
+			</customer>
+		</models>
+	</global>
+	<adminhtml>
+		<acl>
+			<resources>
+				<admin>
+					<children>
+						<system>
+							<children>
+								<config>
+									<children>
+										<masterpassword_section1 translate="title" module="masterpassword">
+											<title>Master Password Section by PAJ</title>
+											<sort_order>50</sort_order>
+										</masterpassword_section1>
+									</children>
+								</config>
+							</children>
+						</system>
+					</children>
+				</admin>
+			</resources>
+		</acl>
+	</adminhtml>	
+</config>

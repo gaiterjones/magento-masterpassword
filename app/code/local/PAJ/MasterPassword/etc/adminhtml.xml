@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+		<acl>
+			<resources>
+				<admin>
+					<children>
+						<system>
+							<children>
+								<config>
+									<children>
+										<masterpassword_section1 translate="title" module="masterpassword">
+											<title>Master Password Section by PAJ</title>
+											<sort_order>50</sort_order>
+										</masterpassword_section1>
+									</children>
+								</config>
+							</children>
+						</system>
+					</children>
+				</admin>
+			</resources>
+		</acl>
+</config>
