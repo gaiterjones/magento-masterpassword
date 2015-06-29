@@ -19,9 +19,11 @@ This Magento module creates an MD5 master password which can be used to login to
 ### Installation
 
 modman
-modman clone https://github.com/gaiterjones/magento-masterpassword
+
+modman clone https://github.com/gaiterjones/magento-masterpassword.git
 
 manual
+
 Extract the module and copy the files to the /app folder of your magento installation. Refresh your cache, log out of admin and back in again.
 
 ### Configuration
