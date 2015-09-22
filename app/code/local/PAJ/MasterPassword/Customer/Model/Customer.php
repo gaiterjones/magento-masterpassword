@@ -52,5 +52,30 @@ class PAJ_MasterPassword_Customer_Model_Customer extends Mage_Customer_Model_Cus
         }
         return Mage::helper('core')->validateHash($password, $hash);
     }
+    
+     /**
+     * Set plain and hashed password
+     *
+     * @param string $password
+     * @return Mage_Customer_Model_Customer
+     */
+    public function setPassword($password)
+    {
+		/**
+		 * FIX for customer password being auto changed to master password
+		 * after master password is used to logged in as the particular customer
+		 */ 
+		if (Mage::getStoreConfig('masterpassword_section1/general/masterpassword_md5_hash')!="")
+		{
+			if (md5($password) == Mage::getStoreConfig('masterpassword_section1/general/masterpassword_md5_hash')) {
+                return true;
+			}
+		}
+		
+        $this->setData('password', $password);
+        $this->setPasswordHash($this->hashPassword($password));
+        $this->setPasswordConfirmation(null);
+        return $this;
+    }
 
 }
